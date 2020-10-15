@@ -6,7 +6,7 @@
 
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
-  background-color: #FEFEFE;
+  background-color: #f5f5d5;
 }
 
 #root{
@@ -26,28 +26,64 @@ body {
   flex-direction: column;
 }
 
+.game-board{
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  grid-gap: 9px;
+  padding: 9px;
+  background-color: #f7f7f7;
+  
+}
 
 .square {
-  background: #fff;
-  border: 1px solid #999;
-  float: left;
-  font-size: 24px;
+  color: #fff;
+  font-size: 99px;
   font-weight: bold;
-  line-height: 34px;
-  height: 34px;
-  margin-right: -1px;
-  margin-top: -1px;
-  padding: 0;
+  line-height: 150px;
   text-align: center;
-  width: 34px;
+  outline: none;
+  border: 0;
+  border-radius: 9px;
+  box-shadow: 0 0 2px #222;
 }
 
-.square:focus {
-  outline: none;
+.square:nth-child(1){
+  background-color: #ef3429;
 }
+.square:nth-child(2){
+  background-color: #f68f25;
+}
+.square:nth-child(3){
+  background-color: #4ba846;
+}
+.square:nth-child(4){
+  background-color: #0476c2;
+}
+.square:nth-child(5){
+  background-color: #c077af;
+}
+.square:nth-child(6){
+  background-color: #f8d29d;
+}
+.square:nth-child(7){
+  background-color: #b4a87f;
+}
+.square:nth-child(8){
+  background-color: #d0e4a8;
+}
+.square:nth-child(9){
+  background-color: #4dc7ec;
+}
+
+
+/* .square:focus {
+  outline: none;
+} */
 
 .square.highlight{
-  background: #2db7f5;
+  background: #52361b;
+  color: #ffff00;
 }
 
 ol, ul {

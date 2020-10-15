@@ -47,15 +47,18 @@ class Board extends React.Component {
   }
 
   render() {
-    const rowArray = [0, 3, 6];
-    const temp = Array(3).fill(null);
+    // const rowArray = [0, 3, 6];
+    // const temp = Array(9).fill(1);
     return (
-      <div>
-        {rowArray.map((v) => (
-          <div key={v} className="board-row">
-            {temp.map((t, i) => i + v).map((t) => this.renderSquare(t))}
-          </div>
-        ))}
+      // <div>
+      //   {rowArray.map((v) => (
+      //     <div key={v} className="board-row">
+      //       {temp.map((t, i) => i + v).map((t) => this.renderSquare(t))}
+      //     </div>
+      //   ))}
+      // </div>
+      <div className="game-board">
+        { Array(9).fill(1).map((v, i) => this.renderSquare(i)) }
       </div>
     );
   }
@@ -139,13 +142,13 @@ class Game extends React.Component {
 
     return (
       <div className="game">
-        <div className="game-board">
+        {/* <div className="game-board"> */}
           <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
             lines={lines}
           />
-        </div>
+        {/* </div> */}
         <div className="game-info">
           <div>{status}</div>
           <div>
