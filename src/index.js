@@ -47,16 +47,7 @@ class Board extends React.Component {
   }
 
   render() {
-    // const rowArray = [0, 3, 6];
-    // const temp = Array(9).fill(1);
     return (
-      // <div>
-      //   {rowArray.map((v) => (
-      //     <div key={v} className="board-row">
-      //       {temp.map((t, i) => i + v).map((t) => this.renderSquare(t))}
-      //     </div>
-      //   ))}
-      // </div>
       <div className="game-board">
         { Array(9).fill(1).map((v, i) => this.renderSquare(i)) }
       </div>
@@ -142,14 +133,15 @@ class Game extends React.Component {
 
     return (
       <div className="game">
-        {/* <div className="game-board"> */}
+        <div className="game-box">
+          { Array(4).fill(1).map((v, i) => <span key={i} className="border"></span>) }
           <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
             lines={lines}
           />
-        {/* </div> */}
-        <div className="game-info">
+        </div>
+        <div className="game-info" style={{display:'none'}}>
           <div>{status}</div>
           <div>
             <button onClick={() => this.setState({ isReverse: !isReverse })}>{btnText}</button>
