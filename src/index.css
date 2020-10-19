@@ -19,7 +19,7 @@ body {
 .game {
   max-width: 750px;
   margin: auto;
-  padding: 24px;
+  padding: 1em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,48 +34,49 @@ body {
 .border {
   position: absolute;
   display: inline-block;
-  width: 175px;
-  height: 175px;
+  width: 33%;
+  height: 33%;
   background-color: #e0dfcc;
   border-radius: 9px;
   z-index: -1;
 }
 .border:nth-child(1){
-  top: -9px;
-  left: -9px;
+  top: -2%;
+  left: -2%;
 }
 .border:nth-child(2){
-  top: -9px;
-  right: -9px;
+  top: -2%;
+  right: -2%;
 }
 .border:nth-child(3){
-  bottom: -9px;
-  left: -9px;
+  bottom: -2%;
+  left: -2%;
 }
 .border:nth-child(4){
-  bottom: -9px;
-  right: -9px;
+  bottom: -2%;
+  right: -2%;
 }
 
 .game-board{
   display: grid;
-  grid-template-columns: repeat(3, 150px);
-  grid-template-rows: repeat(3, 150px);
-  grid-gap: 9px;
-  padding: 27px;
+  grid-template-columns: repeat(3, 30%);
+  grid-template-rows: repeat(3, 30%);
+  grid-gap: 2%;
   background-color: #f7f7f7;
   border-radius: 9px;
+  justify-content: center;
+  align-content: center;
 }
 
 .square {
   color: #fff;
-  font-size: 99px;
+  /* font-size: 99px; */
   font-weight: bold;
-  line-height: 150px;
+  /* line-height: 150px; */
   text-align: center;
   outline: none;
   border: 0;
-  border-radius: 9px;
+  border-radius: 0.6em;
   box-shadow: 0 0 2px #222;
 }
 .square:nth-child(1){
@@ -110,7 +111,7 @@ body {
   color: #ffff00;
 }
 
-ol, ul {
+/* ol, ul {
   padding-left: 30px;
 }
 
@@ -130,4 +131,4 @@ ol, ul {
 
 .game-info {
   margin-left: 20px;
-}
+} */

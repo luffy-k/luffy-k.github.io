@@ -48,7 +48,7 @@ class Board extends React.Component {
 
   render() {
     return (
-      <div className="game-board">
+      <div className="game-board" style={this.props.style}>
         { Array(9).fill(1).map((v, i) => this.renderSquare(i)) }
       </div>
     );
@@ -68,7 +68,34 @@ class Game extends React.Component {
       stepNumber: 0,
       xIsNext: true,
       isReverse: false,
+      boardStyle: this.getBoardStyle(),
     };
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.resizeWindow)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.resizeWindow)
+  }
+
+  getBoardStyle(){
+    let width = document.body.clientWidth;
+    const size = width < 700 ? 'calc(100vw - 3em)' : '520px';
+    return {
+      width: size,
+      height: size,
+    }
+  }
+
+  resizeWindow = () => {
+    const style = this.getBoardStyle();
+    const { boardStyle } = this.state;
+    if(style.width !== boardStyle.width){
+      console.log('resize');
+      this.setState({ boardStyle: style });
+    }
   }
 
   handleClick(i) {
@@ -96,7 +123,7 @@ class Game extends React.Component {
   }
 
   render() {
-    const { history, xIsNext, stepNumber, isReverse } = this.state;
+    const { history, xIsNext, stepNumber, isReverse, boardStyle } = this.state;
     const current = history[stepNumber];
     const result = calculateWinner(current.squares);
     const moves = history.map((step, move) => {
@@ -136,6 +163,7 @@ class Game extends React.Component {
         <div className="game-box">
           { Array(4).fill(1).map((v, i) => <span key={i} className="border"></span>) }
           <Board
+            style={boardStyle}
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
             lines={lines}
