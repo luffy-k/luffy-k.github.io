@@ -81,19 +81,26 @@ class Game extends React.Component {
   }
 
   getBoardStyle(){
-    let width = document.body.clientWidth;
-    const size = width < 700 ? 'calc(100vw - 3em)' : '520px';
-    return {
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    let size = width < 700 ? 'calc(100vw - 2rem)' : '520px';
+    if(height < 520){
+      size = 'calc(100vh - 2rem)';
+    }
+    const output = {
       width: size,
       height: size,
+    };
+    if(size === '520px'){
+      output.fontSize = '24px';
     }
+    return output;
   }
 
   resizeWindow = () => {
     const style = this.getBoardStyle();
     const { boardStyle } = this.state;
     if(style.width !== boardStyle.width){
-      console.log('resize');
       this.setState({ boardStyle: style });
     }
   }
